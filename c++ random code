@@ -1,0 +1,25 @@
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+using namespace std;
+
+int main()
+{
+    string password;
+    srand((unsigned)time(0));
+    int random = rand();
+    int old_random;
+    char alphabet[36] = {'a','b','c','d','e','f','g','h','i','j','k','l','m','n',
+    'o','p','q','r','s','t','u','v','w','x','y','z','0','1','2','3','4','5','6','7','8','9'};
+    while (password.length() < 8){
+        if(random <= 35 && old_random != random){
+            password += alphabet[random];
+            old_random = random;
+        }
+        else{
+            random = rand();
+        }
+    }
+    cout <<  password << '\n';
+    return 0;
+}
